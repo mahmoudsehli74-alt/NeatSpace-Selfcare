@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f7f4" />
+  <meta name="robots" content="noindex, follow" />
+
+  <title>NeatSpace Selfcare — Small Rituals, Softer Days</title>
+  <meta name="description" content="Gently curated self-care and wellness finds for slow mornings and calm evenings." />
+
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="NeatSpace Selfcare" />
+  <meta property="og:title" content="NeatSpace Selfcare — Small Rituals, Softer Days" id="og-title" />
+  <meta property="og:description" content="Gently curated self-care and wellness finds." id="og-desc" />
+  <meta property="og:image" id="og-image" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%23d89a9e'/%3E%3Cpath d='M50 24c10 12 16 20 16 30a16 16 0 1 1-32 0c0-10 6-18 16-30z' fill='%23fbfefd'/%3E%3Cpath d='M50 46v22' stroke='%23e9b7ba' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://ae01.alicdn.com" crossorigin />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar__brand" href="./" aria-label="NeatSpace Selfcare home">
+      <span class="topbar__leaf" aria-hidden="true"></span>
+      <span class="topbar__name">neatspace<em>·</em>selfcare</span>
+    </a>
+  </header>
+
+  <main id="app" class="app">
+
+    <!-- ═══ Loading skeleton ═══ -->
+    <section id="skeleton" class="product" aria-busy="true" aria-label="Loading product">
+      <div class="gallery gallery--skeleton"><div class="skeleton skeleton--hero"></div></div>
+      <div class="info">
+        <div class="skeleton skeleton--badge"></div>
+        <div class="skeleton skeleton--headline"></div>
+        <div class="skeleton skeleton--headline skeleton--w65"></div>
+        <div class="skeleton skeleton--price"></div>
+        <div class="skeleton skeleton--body"></div>
+        <div class="skeleton skeleton--body skeleton--w80"></div>
+        <div class="skeleton skeleton--body skeleton--w55"></div>
+      </div>
+      <div class="cta-bar cta-bar--skeleton"><div class="skeleton skeleton--cta"></div></div>
+    </section>
+
+    <!-- ═══ Product view ═══ -->
+    <section id="product" class="product" hidden>
+      <figure class="gallery" id="gallery">
+        <div class="gallery__track" id="gallery-track"></div>
+        <button class="gallery__nav gallery__nav--prev" id="gallery-prev" type="button" aria-label="Previous image">&#8249;</button>
+        <button class="gallery__nav gallery__nav--next" id="gallery-next" type="button" aria-label="Next image">&#8250;</button>
+        <div class="gallery__dots" id="gallery-dots" aria-hidden="true"></div>
+        <figcaption class="gallery__count" id="gallery-count"></figcaption>
+      </figure>
+
+      <article class="info">
+        <p class="badge" id="kicker"></p>
+        <h1 class="headline" id="title"></h1>
+
+        <div class="price-row">
+          <span class="price" id="price"></span>
+          <span class="price price--was" id="price-old"></span>
+          <span class="discount" id="discount" hidden></span>
+        </div>
+
+        <p class="lede" id="description"></p>
+
+        <ul class="rituals">
+          <li><span class="rituals__dot" aria-hidden="true"></span>Made part of a slower routine</li>
+          <li><span class="rituals__dot" aria-hidden="true"></span>Gentle on you — nothing harsh</li>
+          <li><span class="rituals__dot" aria-hidden="true"></span>Picked for how it feels to use</li>
+        </ul>
+
+        <ul class="tags" id="tags"></ul>
+        <p class="disclosure" id="disclosure"></p>
+      </article>
+
+      <!-- Sticky CTA (glass mobile bar · desktop card) -->
+      <div class="cta-bar" id="cta-bar">
+        <div class="cta-bar__inner">
+          <div class="cta-bar__meta">
+            <span class="cta-bar__price" id="cta-price"></span>
+            <span class="cta-bar__hint">Free returns · Ships worldwide</span>
+          </div>
+          <a class="cta" id="cta" href="#" rel="nofollow sponsored noopener" target="_blank">
+            Get the Ritual
+            <svg class="cta__arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 5v14M5 13l7 6 7-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Fallback / 404 ═══ -->
+    <section id="fallback" class="fallback" hidden>
+      <div class="fallback__hero">
+        <div class="fallback__glyph" aria-hidden="true">❋</div>
+        <h1 class="fallback__title">This ritual is currently unavailable</h1>
+        <p class="fallback__text">
+          Take a breath — there are more quiet comforts waiting just below.
+        </p>
+        <div class="fallback__actions">
+          <a class="cta cta--block" href="https://www.pinterest.com/" rel="noopener" target="_blank">Browse rituals on Pinterest</a>
+          <a class="ghost-link" href="./">Back to NeatSpace Selfcare</a>
+        </div>
+      </div>
+      <div class="featured" id="featured-wrap" hidden>
+        <h2 class="featured__heading">Rest &amp; reset picks</h2>
+        <div class="grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__line">neatspace selfcare · gently curated wellness finds</p>
+    <p class="footer__fine" id="footer-fine">As an affiliate, we may earn from qualifying purchases.</p>
+  </footer>
+
+  <noscript><div class="noscript">Enable JavaScript to view this listing.</div></noscript>
+</body>
+</html>
