@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://ae01.alicdn.com" crossorigin />
   <link rel="stylesheet" href="./style.css" />
-  <script src="./app.js" defer></script>
+  <script src="./app.js?v=2" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -31,7 +31,36 @@
     </a>
   </header>
 
-  <main id="app" class="app">
+    <main id="app" class="app">
+
+    <!-- ═══ Root storefront: dynamic catalog (bio-link landing) ═══ -->
+    <section id="storefront" class="storefront" hidden>
+      <header class="storefront__hero">
+        <p class="storefront__eyebrow">Gently curated · Slow living</p>
+        <h1 class="storefront__title">Small rituals,<br class="hide-sm" /> softer days</h1>
+        <p class="storefront__sub">
+          Self-care and wellness finds for slow mornings and calm evenings —
+          chosen for how they feel to use, not just how they look.
+        </p>
+      </header>
+
+      <div class="storefront__bar">
+        <h2 class="storefront__shelf">Current rituals</h2>
+        <span class="storefront__count" id="catalog-count" aria-live="polite"></span>
+      </div>
+
+      <div class="grid grid--catalog" id="catalog-grid" aria-busy="true"></div>
+
+      <div class="storefront__empty" id="catalog-empty" hidden>
+        <p class="storefront__empty-title">New rituals are on the way</p>
+        <p class="storefront__empty-text">
+          The collection is being refreshed — browse our latest pins in the meantime.
+        </p>
+        <a class="cta cta--block" href="https://www.pinterest.com/" rel="noopener" target="_blank">
+          Keep browsing on Pinterest
+        </a>
+      </div>
+    </section>
 
     <!-- ═══ Loading skeleton ═══ -->
     <section id="skeleton" class="product" aria-busy="true" aria-label="Loading product">
