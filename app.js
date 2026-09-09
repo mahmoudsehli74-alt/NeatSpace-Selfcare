@@ -347,12 +347,15 @@ function buildCatalogCard(doc) {
 async function renderCatalog(keys) {
   const grid = $("catalog-grid");
   const shown = keys.slice(0, CONFIG.catalogMax);
-  const docs = (await Promise.allSettled(
-    shown.map((key) => fetchJson(`./products/${encodeURIComponent(key)}.json`))
-  ))
-    .map((r) => (r.status === "fulfilled" ? normalizeDocument(r.value) : null))
-    .filter((doc) => doc && doc.key);
-  docs.forEach((doc) => grid.appendChild(buildCatalogCard(doc)));
+  // STREAM: each card appears the moment its JSON lands — one slow fetch
+  // never delays the shelf (live lesson: a stale-etag file held the whole
+  // batch for seconds on first visit).
+  await Promise.all(shown.map(async (key) => {
+    try {
+      const doc = normalizeDocument(await fetchJson(`./products/${encodeURIComponent(key)}.json`));
+      if (doc && doc.key) grid.appendChild(buildCatalogCard(doc));
+    } catch { /* one dead card must never kill the shelf */ }
+  }));
   $("catalog-count").textContent =
     grid.children.length ? `${grid.children.length} curated rituals` : "";
   return grid.children.length;
